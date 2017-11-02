@@ -103,9 +103,9 @@ concepts:
         text: |-
           ## 删除默认文件
            
-          Create React App 将生成大量默认文件和初始代码，需要我们删掉。你需要作两个更改，删除这些初始代码, 然后提添加我们提供的文件。你可以自己手动操作。或者克隆[此资源库](https://github.com/udacity/reactnd-contacts-complete)并检出  `starter-files-added` 分支，它已经帮你删掉所有要删的文件。
+          Create React App 将生成大量默认文件和初始代码，需要我们删掉。你需要作两个更改，删除这些初始代码, 然后添加我们提供的文件。你可以自己手动操作。或者克隆[此资源库](https://github.com/udacity/reactnd-contacts-complete)并检出  `starter-files-added` 分支，它已经帮你删掉所有要删的文件。
            
-          如果你想删掉起始代码并_手动_添加我们的代码，直接操作即可。如果你决定克隆已经包含这些更改的资源库，请跳过继续往下看设置后端服务器。
+          如果你想删掉起始代码并**手动**添加我们的代码，直接操作即可。如果你决定克隆已经包含这些更改的资源库，请直接跳到本页设置后端服务器的部分。
 
           如果你想手动执行更改，那么第一步是删除 Create React App 添加的这些样板文件。请参阅[此 commit](https://github.com/udacity/reactnd-contacts-complete/commit/b1959521da8d914374bd2a61b17e55088ffab9f5) 以了解具体说明。
         instructor_notes: ''
@@ -332,7 +332,7 @@ concepts:
         question:
           complex_prompt:
             text: 将以下各项对应到相应的概念：
-          default_feedback: _____之于函数相当于_____之于组件。
+          default_feedback: _____对于函数来说相当于_____之于组件。
           correct_feedback: 我们可以认为向组件传递 Props 就像我们给函数传入参数。就像我们可以在普通 JavaScript 中访问传入的参数一样，我们也可以使用 `this.props`（或者在无状态函数式组件中使用 `props`）访问组件的 Props。
           video_feedback: null
           concepts_label: Concept
@@ -551,7 +551,7 @@ concepts:
                      
           在上述代码中，`text ` 是`prop`，字符串 `'Wanna log out?'` 是值。
                      
-          所有属性都存储在 `this.props` 对象中。因此，要在组件_内部_访问此 `text` `属性`，我们使用 `this.props.text`：
+          所有属性都存储在 `this.props` 对象中。因此，要在组件**内部**访问此 `text` `属性`，我们使用 `this.props.text`：
                      
           ```js
           // access the prop inside the component
@@ -662,9 +662,9 @@ concepts:
         is_public: true
         question:
           prompt: 何时适合使用无状态函数式组件？请选中所有适用项。
-          correct_feedback: 如果组件_仅_使用 `render` 方法来显示内容，那么可以转换为无状态函数式组件。
+          correct_feedback: 如果组件**仅**使用 `render` 方法来显示内容，那么可以转换为无状态函数式组件。
           video_feedback: null
-          default_feedback: 请注意，这些都叫做_无状态_函数式组件。_无状态_意味着这些组件不用关心处理数据更改，只负责显示数据。
+          default_feedback: 请注意，这些都叫做**无状态**函数式组件。**无状态**意味着这些组件不用关心处理数据更改，只负责显示数据。
           answers:
             - id: a1497651097853
               text: 当组件需要初始化某些数据时
@@ -785,9 +785,9 @@ concepts:
         text: |-
           ## 状态
 
-          在这节课的之前部分，我们了解了 `props` 指的是来自父组件的属性。最终，属性代表的是不可变的_只读_ (immutable) 数据。
+          在这节课的之前部分，我们了解了 `props` 指的是来自父组件的属性。最终，属性代表的是不可变的**只读** (immutable) 数据。
 
-          另一方面，组件的 state 代表的是_可变_的数据，并且影响到页面上所有依赖其渲染的内容。state 由组件本身在内部管理，会随着时间的推移而改变，一般会因为用户输入（例如点击页面上的按钮）而改变。
+          另一方面，组件的 state 代表的是**可变**的数据，并且影响到页面上所有依赖其渲染的内容。state 由组件本身在内部管理，会随着时间的推移而改变，一般会因为用户输入（例如点击页面上的按钮）而改变。
 
           在这部分，我们将了解如何将复杂的状态管理封装到单个组件中。
         instructor_notes: ''
@@ -823,7 +823,7 @@ concepts:
         semantic_type: TextAtom
         updated_at: 'Wed Sep 06 2017 02:56:01 GMT+0000 (UTC)'
         is_public: true
-        text: "## \uD83D\uDCA1 类字段 \uD83D\uDCA1\n\n在上述代码中，我们将 `state` 对象直接放入类中…而_不是_ `constructor()` 方法中！\n\n```javascript\nclass User extends React.Component {\n  state = {\n    username: 'Tyler'\n  } \n}\n\n// rather than\n\nclass User extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      username: 'Tyler'\n    }\n  }\n}\n```\n\n 这与 Facebook 的 [设置初始状态文档](https://facebook.github.io/react/docs/react-without-es6.html#setting-the-initial-state)稍微不同。\n\n 将 `state` 放在 `constructor()` 外面意味着它是[类字段](https://github.com/tc39/proposal-class-fields)，这是对语言做出新更改的提议。暂时不受 JavaScript 支持，但是在 Babel 的强大转译功能的支持下，我们可以使用它！"
+        text: "## \uD83D\uDCA1 类字段 \uD83D\uDCA1\n\n在上述代码中，我们将 `state` 对象直接放入类中…而**不是** `constructor()` 方法中！\n\n```javascript\nclass User extends React.Component {\n  state = {\n    username: 'Tyler'\n  } \n}\n\n// rather than\n\nclass User extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      username: 'Tyler'\n    }\n  }\n}\n```\n\n 这与 Facebook 的 [设置初始状态文档](https://facebook.github.io/react/docs/react-without-es6.html#setting-the-initial-state)稍微不同。\n\n 将 `state` 放在 `constructor()` 外面意味着它是[类字段](https://github.com/tc39/proposal-class-fields)，这是对语言做出新更改的提议。暂时不受 JavaScript 支持，但是在 Babel 的强大转译功能的支持下，我们可以使用它！"
         instructor_notes: ''
         resources: null
       - id: 357313
@@ -871,7 +871,7 @@ concepts:
         text: |
           > ## ⚠️ 初始状态中的 props ⚠️
           >
-          > 在定义组件的初始 state 时，请避免使用 `props` 初始化。这是容易引起错误的_反模式_，因为仅在组件首次被创建时，state 会使用 `props` 进行初始化。
+          > 在定义组件的初始 state 时，请避免使用 `props` 初始化。这是容易引起错误的**反模式**，因为仅在组件首次被创建时，state 会使用 `props` 进行初始化。
           >
           > ```javascript
           > this.state = {
@@ -892,7 +892,7 @@ concepts:
         is_public: true
         question:
           prompt: 关于 React 中的 `state`，哪些描述是正确的？请选中所有适用项：
-          correct_feedback: State 是 React 组件的关键属性。熟悉状态的使用方法和设置（重置）方法将有助于简化应用 UI 构建流程。
+          correct_feedback: state 是 React 组件的关键属性。熟悉状态的使用方法和设置（重置）方法将有助于简化应用 UI 构建流程。
           video_feedback: null
           default_feedback: 和 `props` 不一样，组件会管理自己的 `state`。状态应该（并且将会）在组件的整个生命周期内不断被更新。
           answers:
@@ -901,7 +901,7 @@ concepts:
               is_correct: true
               incorrect_feedback: null
             - id: a1498169778233
-              text: State 通常从组件之外传进来
+              text: state 通常从组件之外传进来
               is_correct: false
               incorrect_feedback: null
             - id: a1498169780449
@@ -921,9 +921,9 @@ concepts:
         updated_at: 'Wed Sep 06 2017 03:04:44 GMT+0000 (UTC)'
         is_public: true
         text: |
-          ## State 总结
+          ## state 总结
 
-          通过让组件管理自己的 state，任何时候 state 发生变化了，React 将知道并_自动_对页面做出必要的更新。
+          通过让组件管理自己的 state，任何时候 state 发生变化了，React 将知道并**自动**对页面做出必要的更新。
 
           这是使用 React 构建 UI 组件的关键优势之一：如果要重新渲染页面，我们只需考虑更新 state。每次有更新时，我们不需要知道到底是页面的哪个部分变化了。我们不需要判断如何高效地重新渲染页面。React 会对比之前的输出和新的输出，判断哪些改变了，并为我们做出决策。这种判断之前的输出和新的输出之间哪些变化了的流程称为`核对过程`。
 
@@ -1017,7 +1017,7 @@ concepts:
         text: |-
           ## 如何设置 state
 
-          之前，我们了解了如何在初始化时定义组件的 state。因为 state 表示的是_可变_的信息，最终会影响到所渲染的输出内容，因此组件可能还会在其生命周期中使用 `this.setState()` 更新其 state。我们已经知道，每次本地 state 变化时，React 将通过调用其 `render()` 方法触发重新渲染组件。
+          之前，我们了解了如何在初始化时定义组件的 state。因为 state 表示的是**可变**的信息，最终会影响到所渲染的输出内容，因此组件可能还会在其生命周期中使用 `this.setState()` 更新其 state。我们已经知道，每次本地 state 变化时，React 将通过调用其 `render()` 方法触发重新渲染组件。
 
           可以通过两种方法来使用 `setState()`。第一个是合并更新。请看看下面的组件代码段：
 
@@ -1079,7 +1079,7 @@ concepts:
               is_correct: false
               incorrect_feedback: 直接改变 `this.state` 不会触发重新渲染流程。进而，用户在页面上看到的内容可能不会反映组件的内部状态。
             - id: a1498173710585
-              text: State 更新是异步的（即 `setState()` 可以接受将之前的状态当做其第一个参数的函数）
+              text: state 更新是异步的（即 `setState()` 可以接受将之前的状态当做其第一个参数的函数）
               is_correct: true
               incorrect_feedback: '`setState()` 可以接受函数或对象作为参数。'
             - id: a1498174851529
@@ -1490,7 +1490,7 @@ concepts:
           default_feedback: 使用受控组件后，用户输入如何影响到应用？
           answers:
             - id: a1498526202927
-              text: 受控组件更像是 “React“ 的处理方式”
+              text: 受控组件更像是 “React 的处理方式”
               is_correct: false
               incorrect_feedback: null
             - id: a1498526225491
