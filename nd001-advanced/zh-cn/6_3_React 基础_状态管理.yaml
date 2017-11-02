@@ -1367,14 +1367,14 @@ concepts:
 
           因为是 React 最终控制输入表格元素的`值`，因此我们将该组件视为[受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)。
 
-          总结下用户输入如何影响到 `ListContacts` 组件自己的`状态`：
+          总结下用户输入如何影响到 `ListContacts` 组件自己的`state`：
            
-          1. 用户在输入字段中输入文本。
+          1. 用户在输入框中输入文本。
           * 事件监听器在每个 `onChange` 事件上触发 `updateQuery()` 函数。
-          * `updateQuery()` 然后调用 `setState()`，合并新状态以更新组件的内部状态。
-          * 因为 `ListContacts` 的状态已变化，所以它会重新渲染。
+          * 然后 `updateQuery()` 调用 `setState()`，合并新状态以更新组件的内部状态。
+          * 因为 `ListContacts` 的 state 已变化，所以它会重新渲染。
            
-          我们看看如何利用这个更新后的`状态`过滤通讯录！为了帮助我们过滤通讯录，我们需要以下软件包：
+          我们看看如何利用这个更新后的`state`筛选联系人！为了帮助我们筛选，我们需要以下软件包：
 
 
           * [escape-string-regexp](https://www.npmjs.com/package/escape-string-regexp)
@@ -1395,31 +1395,31 @@ concepts:
         is_public: true
         question:
           prompt: 什么是受控组件？
-          correct_feedback: React 擅长于处理状态。它可能还会处理我们的表格状态！
+          correct_feedback: React 擅长于处理状态。也同样擅长处理我们的表单状态！
           video_feedback: null
-          default_feedback: 思考下在渲染表格时，我们可以如何利用 React 状态。
+          default_feedback: 思考下在渲染表单时，我们可以如何利用 React 状态。
           answers:
             - id: a1498526059926
-              text: 控制其子组件的状态的组件
+              text: 控制其子组件状态的组件
               is_correct: false
               incorrect_feedback: null
             - id: a1498526062151
-              text: 负责渲染表格，但是该表格状态的数据源位于组件状态里，而不是 DOM 里的组件
+              text: 负责渲染表单，但是该表单状态的数据源位于组件状态里，而不是 DOM 里
               is_correct: true
               incorrect_feedback: null
             - id: a1498526063016
-              text: 会控制其子组件的 UI 的组件
+              text: 会控制其子组件 UI 的组件
               is_correct: false
               incorrect_feedback: null
             - id: a1498526063804
-              text: 负责渲染表格，但是该表格状态的数据源位于 DOM 里，而不是组件状态里的组件
+              text: 负责渲染表单，但是该表单状态的数据源位于 DOM 里，而不是组件 (的 state) 里
               is_correct: false
               incorrect_feedback: null
       - id: 357352
         key: 622e7ece-579b-4455-acc4-472a6ece2a00
         locale: zh-cn
         version: 1.0.0
-        title: 显示查询的通讯录
+        title: 显示查询后的通讯录
         semantic_type: VideoAtom
         updated_at: 'Wed Sep 06 2017 03:38:26 GMT+0000 (UTC)'
         is_public: true
@@ -1484,17 +1484,17 @@ concepts:
         updated_at: 'Wed Sep 06 2017 03:47:26 GMT+0000 (UTC)'
         is_public: true
         question:
-          prompt: 哪个优势是受控组件具备而不受控组件不具备的？
-          correct_feedback: 借助受控组件，表格状态将位于组件内。因此，我们可以根据该表格状态轻松更新 UI。
+          prompt: 哪个优点是受控组件具备而不受控组件不具备的？
+          correct_feedback: 借助受控组件，表单状态将位于组件内。因此，我们可以根据该表格状态轻松更新 UI。
           video_feedback: null
           default_feedback: 使用受控组件后，用户输入如何影响到应用？
           answers:
             - id: a1498526202927
-              text: 受控组件更像是“React 的处理方式”
+              text: 受控组件更像是 “React“ 的处理方式”
               is_correct: false
               incorrect_feedback: null
             - id: a1498526225491
-              text: 受控组件需要输入更少的内容
+              text: 受控组件可以减少输入
               is_correct: false
               incorrect_feedback: null
             - id: a1498526226255
@@ -1502,7 +1502,7 @@ concepts:
               is_correct: false
               incorrect_feedback: null
             - id: a1498526227054
-              text: 受控组件使你能够根据表格本身更新 UI
+              text: 受控组件使你能够根据表单本身更新 UI
               is_correct: true
               incorrect_feedback: null
       - id: 357359
@@ -1514,7 +1514,7 @@ concepts:
         updated_at: 'Sun Sep 17 2017 07:35:55 GMT+0000 (UTC)'
         is_public: true
         text: |-
-          目前，我们的组件有点混乱；`render()` 方法经常从状态对象访问 `query` (`this.state.query`)，并从属性对象访问 `contacts` (`this.props.contacts`)。因为属性和状态只是 JavaScript 对象，我们可以使用 ES6 功能将它们拆分为单个变量，而不是每次都将它们当做 `this.state.query` 和 `this.props.contacts`。这种拆分流程叫做[对象解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)。
+          目前，我们的组件有点混乱；`render()` 方法经常从 state 对象访问 `query` (`this.state.query`)，并从 props 对象访问 `contacts` (`this.props.contacts`)。因为 `props` 和 `state` 只是 JavaScript 对象，我们可以使用 ES6 特性将它们解包为单个变量，而不是每次都通过 `this.state.query` 和 `this.props.contacts` 引用他们。这种解包流程叫做[对象解构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)。
                      
            总之，解构对象不会改变代码的返回值，但是可以让内容看起来更清晰。我们看看下面的实际使用案例。
         instructor_notes: ''
@@ -1562,16 +1562,16 @@ concepts:
         updated_at: 'Wed Sep 06 2017 03:44:17 GMT+0000 (UTC)'
         is_public: true
         text: |-
-          ## 显示显示的通讯录条数
+          ## 显示可见的联系人条数
                      
-          我们很快就处理完受控组件了！最后一步是让应用显示目前显示了多少条通讯录，总共有多少条。
+          我们很快就处理完受控组件了！最后一步是让应用显示目前显示了多少条联系人，总共有多少条。
         instructor_notes: ''
         resources: null
       - id: 357366
         key: fb64e36b-6653-47dc-8af7-fcac3c17549b
         locale: zh-cn
         version: 1.0.0
-        title: 添加 -目前显示的是- 详情
+        title: 添加 -Now Showing- 详情
         semantic_type: VideoAtom
         updated_at: 'Wed Sep 06 2017 03:44:50 GMT+0000 (UTC)'
         is_public: true
@@ -1614,28 +1614,28 @@ concepts:
             在继续学习下节课之前，来检验下对受控组件的掌握情况！
 
             关于受控组件的描述，下面哪些描述是正确的？请选中所有适用项？
-          correct_feedback: 借助受控组件，React 状态成为表格数据的“单一数据源”。这就是 `ListContacts` 组件中的用户输入最终如何触发重新渲染页面内容。
+          correct_feedback: 借助受控组件，React 中的 state 成为表单数据的“单一数据源”。因此， 用户在 `ListContacts` 组件输入会最终触发整个页面内容的重新渲染。
           video_feedback: null
-          default_feedback: 借助受控组件，表格元素的值直接与组件的状态相关联。
+          default_feedback: 借助受控组件，表单元素的值直接与组件的 state 绑定在一起。
           answers:
             - id: a1498518524112
-              text: 状态的每次更新都具有相关的处理函数
+              text: 每个 state 的更新都有相关联的处理函数
               is_correct: true
               incorrect_feedback: null
             - id: a1498518805577
-              text: 表格元素通过属性接收它们的当前值
+              text: 表单元素通过属性接收它们的当前值
               is_correct: true
               incorrect_feedback: null
             - id: a1498519048216
-              text: 表格输入值通常存储在组件的状态中
+              text: 表单输入值通常存储在组件的 state 中
               is_correct: true
               incorrect_feedback: null
             - id: a1498519182688
-              text: '`<textarea>` 和 `<select>` 不能是受控元素'
+              text: '`<textarea>` 和 `<select>` 不能成为受控元素'
               is_correct: false
               incorrect_feedback: null
             - id: a1498519794437
-              text: 受控组件的事件句柄会更新组件的状态
+              text: 受控组件的事件回调函数会更新组件的 state
               is_correct: true
               incorrect_feedback: null
       - id: 357369
@@ -1649,13 +1649,13 @@ concepts:
         text: |-
           ## 受控组件总结
 
-          受控组件是指渲染表格的组件，但是该表格状态的“数据源”位于组件状态里，而不是 DOM 里。受控组件的优势包括：
+          受控组件是指渲染表单的组件，但是该表单的“唯一数据源”位于组件 state 里，而不是 DOM 里。受控组件的优势包括：
 
                     * 立即验证输入
                     * 有条件地停用/启用按钮
-                    * 强制实施输入格式
+                    * 强制输入格式
 
-          在 `ListContacts` 组件中，该组件不仅会渲染表格，而且根据用户输入控制该表格中发生的情况。在这种情况下，事件句柄使用用户的搜索查询更新组件状态。我们已经知道，对 React 状态的任何更改都将导致重新渲染页面内容，并有效地显示实时搜索结果。
+          在 `ListContacts` 组件中，该组件不仅会渲染出表单，而且会根据用户输入控制该表单。在该例子中，事件处理函数使用用户输入的查询条件更新组件 state。我们已经知道，对 React 状态的任何更改都将导致重新渲染页面内容，从而高效的显示实时搜索结果。
         instructor_notes: ''
         resources: null
   - id: 357412
@@ -1681,14 +1681,14 @@ concepts:
         text: |
           ## 汇总所有信息
 
-          在跟踪应用数据时，思考下需要如何处理该数据，并且当用户查看应用界面时，数据的外观看起来如何。如果你希望组件存储可变的本地数据，可以考虑使用状态存储该信息。很多时候，系统会使用状态来管理组建中的受控表格元素。
+          在跟踪应用数据时，思考下该数据可以用来做什么， 反应在用户界面上是什么样子。如果你希望组件存储可变的本地数据，可以考虑使用 `state` 存储。很多时候，应该使用 `state` 来管理组建中的受控表单元素。
 
-          另一方面，如果某些信息一直不会变化，在整个应用中基本上是“只读”状态，可以考虑改为使用属性。状态和属性通常都是对象形式，更改任何一个都会触发重新渲染组件，但是它们各自在应用中扮演了截然不同的角色。
+          另一方面，如果某些信息一直不变，在整个应用中基本上是“只读”状态，可以考虑改为使用 `props`。状态和属性通常都是对象形式，更改任何一个都会触发重新渲染组件，但是它们各自在应用中扮演了截然不同的角色。
 
-          在这节课，我们讲解了很多内容，并且你学到了很多知识。以下是可以帮助你巩固这些概念的课外资料：
+          在这节课，我们讲解了很多内容，你也学到了很多。以下是可以帮助你巩固这些概念的一些课外资料：
 
           * [React 思维方式](https://facebook.github.io/react/docs/thinking-in-react.html)
-          * [函数式组件与无状态函数式组件与无状态组件](https://tylermcginnis.com/functional-components-vs-stateless-functional-components-vs-stateless-components/)
+          * [函数式组件 vs 无状态函数式组件 vs 无状态组件](https://tylermcginnis.com/functional-components-vs-stateless-functional-components-vs-stateless-components/)
           * [受控组件](https://facebook.github.io/react/docs/forms.html)
         instructor_notes: ''
         resources: null
